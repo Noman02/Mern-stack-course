@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ReactSwitch from "react-switch";
+// import ReactSwitch from "react-switch";
 
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar shadow-lg p-4">
         <div className="flex-1">
           <Link to="/" className=" text-xl font-bold">
             <span className="text-blue-700 ">MERN</span> Stack Course
@@ -26,10 +26,13 @@ const Navbar = () => {
               <Link to="/login">Login</Link>
             </li>
             <li>
-              <Link to="/register">Blog</Link>
+              <Link to="/register">Register</Link>
+            </li>
+            <li>
+              <Link to="">SIGN OUT</Link>
             </li>
           </ul>
-          <ReactSwitch></ReactSwitch>
+          {/* <ReactSwitch></ReactSwitch> */}
         </div>
       </div>
     </div>
