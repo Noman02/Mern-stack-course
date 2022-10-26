@@ -1,13 +1,22 @@
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React from "react";
-import { useState } from "react";
 import { useContext } from "react";
-import { FaGithub, FaGoogle, FaFacebook } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Register = () => {
-  const [error, setError] = useState("");
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
+  const {
+    error,
+    setError,
+    createUser,
+    updateUserProfile,
+    popupSignInWithGoogle,
+    popupSignInWithGithub,
+  } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,7 +34,7 @@ const Register = () => {
         updateUser(name, photoURL);
       })
       .catch((e) => {
-        setError(e);
+        setError(e.message);
       });
   };
 
@@ -35,6 +44,22 @@ const Register = () => {
       photoURL: photoURL,
     };
     updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
+  const handlePopUpWithGoogle = () => {
+    popupSignInWithGoogle(googleProvider)
+      .then(() => {})
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
+  const handlePopUpWithGithub = () => {
+    popupSignInWithGithub(githubProvider)
       .then(() => {})
       .catch((error) => {
         setError(error.message);
@@ -105,26 +130,26 @@ const Register = () => {
             required
           />
         </div>
-        <Link className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
-          Forgot Password?
-        </Link>
         <div className="flex items-center justify-between">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
             Sign up
           </button>
         </div>
-        <div>{error}</div>
-        <div className="flex justify-around">
-          <Link>
+        <div className="text-red-600">{error}</div>
+        <div className="flex justify-center mt-4 mb-4">
+          <button className="text-2xl mr-3" onClick={handlePopUpWithGoogle}>
             <FaGoogle></FaGoogle>
-          </Link>
-          <Link>
-            <FaFacebook></FaFacebook>
-          </Link>
-          <Link>
+          </button>
+          <button className="text-2xl" onClick={handlePopUpWithGithub}>
             <FaGithub></FaGithub>
-          </Link>
+          </button>
         </div>
+        <p className="text-right">
+          Already a user?{" "}
+          <Link className="text-blue-600 font-semibold" to="/login">
+            LOGIN
+          </Link>
+        </p>
       </form>
     </div>
   );
