@@ -1,16 +1,46 @@
 import React from "react";
+import { useState } from "react";
+import { useContext } from "react";
 import { FaGithub, FaGoogle, FaFacebook } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
-const Login = () => {
+const Register = () => {
+  const [error, setError] = useState("");
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-    const username = form.username.value;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(username, email, password);
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setError("");
+        form.reset();
+        updateUser(name, photoURL);
+      })
+      .catch((e) => {
+        setError(e);
+      });
   };
+
+  const updateUser = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
   return (
     <div className="w-full max-w-xs">
       <form
@@ -20,15 +50,29 @@ const Login = () => {
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="username"
+            htmlFor="name"
           >
-            Username
+            name
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            name="username"
+            name="name"
             type="text"
-            placeholder="Username"
+            placeholder="name"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="photoURL"
+          >
+            PhotoURL
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            name="photoURL"
+            type="text"
+            placeholder="photoURL"
           />
         </div>
         <div className="mb-4">
@@ -43,6 +87,7 @@ const Login = () => {
             name="email"
             type="email"
             placeholder="your email"
+            required
           />
         </div>
         <div className="mb-6">
@@ -57,6 +102,7 @@ const Login = () => {
             name="password"
             type="password"
             placeholder="********"
+            required
           />
         </div>
         <Link className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
@@ -67,6 +113,7 @@ const Login = () => {
             Sign up
           </button>
         </div>
+        <div>{error}</div>
         <div className="flex justify-around">
           <Link>
             <FaGoogle></FaGoogle>
@@ -83,4 +130,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

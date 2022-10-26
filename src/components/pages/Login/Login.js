@@ -6,10 +6,10 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-    const username = form.username.value;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(username, email, password);
+    console.log(name, email, password);
   };
   return (
     <div className="w-full max-w-xs">
@@ -20,15 +20,15 @@ const Login = () => {
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="username"
+            htmlFor="name"
           >
-            Username
+            name
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            name="username"
+            name="name"
             type="text"
-            placeholder="Username"
+            placeholder="name"
           />
         </div>
         <div className="mb-4">
