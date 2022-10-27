@@ -10,6 +10,7 @@ const Checkout = () => {
   const { name, price, picture } = course;
   return (
     <div className="w-2/4 mx-auto mt-6">
+      <h2 className="text-2xl">Checkout Order</h2>
       <div className="card card-side bg-base-100 shadow-xl">
         <figure>
           <img className="w-80 rounded pl-2" src={picture} alt="" />

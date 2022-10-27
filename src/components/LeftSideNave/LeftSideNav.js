@@ -13,7 +13,6 @@ const LeftSideNav = ({ course }) => {
           {name}
         </Link>
       </p>
-      ;
     </div>
   );
 };

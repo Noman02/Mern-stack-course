@@ -55,9 +55,7 @@ const Login = () => {
           className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 mt-8"
         >
           <div className="mb-4">
-            <h2 className="text-2xl text-center font-semibold">
-              Please SignIn
-            </h2>
+            <h2 className="text-2xl text-center font-semibold">Please Login</h2>
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="email"
