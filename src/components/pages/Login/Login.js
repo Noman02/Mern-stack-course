@@ -29,6 +29,7 @@ const Login = () => {
     logIn(email, password)
       .then((result) => {
         form.reset();
+        setError("");
         navigate(from, { replace: true });
       })
       .catch((error) => {

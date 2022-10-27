@@ -5,7 +5,7 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Checkout = () => {
   const toastAlert = () => {
-    return toast.success("check");
+    toast.success("Order Placed.");
   };
   const course = useLoaderData();
   const { user } = useContext(AuthContext);
@@ -33,7 +33,7 @@ const Checkout = () => {
               <h3 className="text-xl font-semibold">
                 Total: $ <span className="text-blue-700">{price}</span>{" "}
               </h3>
-              <button onClick={() => toastAlert} className="btn btn-primary">
+              <button onClick={toastAlert} className="btn btn-primary">
                 Place Order
               </button>
             </div>

@@ -42,10 +42,18 @@ const Navbar = () => {
             ) : (
               <>
                 <li>
-                  <Link to="/login">Login</Link>
+                  <Link to="/login">
+                    <button className="btn btn-outline btn-primary">
+                      Login
+                    </button>
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/register">Register</Link>
+                  <Link to="/register">
+                    <button className="btn btn-outline btn-primary">
+                      Register
+                    </button>
+                  </Link>
                 </li>
               </>
             )}

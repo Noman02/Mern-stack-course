@@ -2,12 +2,13 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React from "react";
 import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Register = () => {
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+  const navigate = useNavigate();
 
   const {
     error,
@@ -29,9 +30,10 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        setError("");
         form.reset();
+        setError("");
         updateUser(name, photoURL);
+        navigate("/");
       })
       .catch((e) => {
         setError(e.message);
