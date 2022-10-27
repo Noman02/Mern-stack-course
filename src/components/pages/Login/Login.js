@@ -2,12 +2,14 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React from "react";
 import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Login = () => {
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const {
     logIn,
@@ -25,6 +27,7 @@ const Login = () => {
     logIn(email, password)
       .then((result) => {
         form.reset();
+        Navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
