@@ -2,8 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import ReactTooltip from "react-tooltip";
-// import ReactSwitch from "react-switch";
+import ReactSwitch from "react-switch";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Navbar = () => {
@@ -68,9 +67,9 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <FaUser></FaUser>
+            <FaUser className="mx-3"></FaUser>
           )}
-          {/* <ReactSwitch></ReactSwitch> */}
+          <ReactSwitch></ReactSwitch>
         </div>
       </div>
     </div>

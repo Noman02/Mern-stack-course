@@ -18,7 +18,7 @@ const CourseDetail = () => {
             </div>
             <div className="flex-none">
               <button className="btn btn-square btn-ghost">
-                <FaFileDownload></FaFileDownload>
+                <FaFileDownload className="text-xl"></FaFileDownload>
               </button>
             </div>
           </div>
