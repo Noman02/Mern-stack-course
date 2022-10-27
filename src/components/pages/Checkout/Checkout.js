@@ -1,10 +1,10 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
-import { toast } from "react-toastify";
 
 const Checkout = () => {
   const toastAlert = () => {
-    toast.success("success");
+    toast.success("check");
   };
   const course = useLoaderData();
   const { name, price, picture } = course;

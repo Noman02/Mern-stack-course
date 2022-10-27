@@ -2,14 +2,16 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React from "react";
 import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Login = () => {
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const location = useLocation();
-  const from = location?.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const {
     logIn,
@@ -27,7 +29,7 @@ const Login = () => {
     logIn(email, password)
       .then((result) => {
         form.reset();
-        Navigate(from, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -86,9 +88,7 @@ const Login = () => {
               placeholder="********"
             />
           </div>
-          <Link className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
-            Forgot Password?
-          </Link>
+
           <div className="text-red-600">{error}</div>
           <div className="flex items-center justify-between mb-4">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
