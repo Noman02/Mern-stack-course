@@ -36,8 +36,10 @@ const Navbar = () => {
               <Link to="/blog">Blog</Link>
             </li>
             {user && user.uid ? (
-              <li>
-                <Link onClick={handleLogOut}>SIGN OUT</Link>
+              <li className="mr-3">
+                <button className="btn btn-outline btn-error">
+                  <Link onClick={handleLogOut}>SIGN OUT</Link>
+                </button>
               </li>
             ) : (
               <>

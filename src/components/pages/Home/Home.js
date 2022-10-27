@@ -5,7 +5,7 @@ import Image from "../../../assets/home-bg.jpg";
 
 const Home = () => {
   return (
-    <div className="bg-violet-400 m-6 rounded">
+    <div className="bg-violet-400 m-3 rounded">
       <section className="dark:bg-gray-800 dark:text-gray-100">
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
           <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
