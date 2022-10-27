@@ -10,7 +10,7 @@ const LeftSideNav = ({ course }) => {
           className="text-xl hover:text-blue-700 hover:font-bold"
           to={`/course/${id}`}
         >
-          {name}
+          <h2 className="mb-4">{name}</h2>
         </Link>
       </p>
     </div>

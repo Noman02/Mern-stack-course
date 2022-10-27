@@ -1,48 +1,38 @@
 import React from "react";
+import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Image from "../../../assets/home-bg.jpg";
 
 const Home = () => {
   return (
-    <div>
-      <h3>
-        are you finding the best course to learn mern stack effectively then
-        welcome you here is solutions
-      </h3>
+    <div className="bg-violet-400">
       <section className="dark:bg-gray-800 dark:text-gray-100">
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
-          <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-            <h1 className="text-5xl font-bold leading-none sm:text-6xl">
-              Ac mattis
-              <span className="dark:text-violet-400">senectus</span>erat
-              pharetra
-            </h1>
-            <p className="mt-6 mb-8 text-lg sm:mb-12">
-              Dictum aliquam porta in condimentum ac integer
-              <br className="hidden md:inline lg:hidden" />
-              turpis pulvinar, est scelerisque ligula sem
-            </p>
-            <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
-              >
-                Suspendisse
-              </a>
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100"
-              >
-                Malesuada
-              </a>
-            </div>
-          </div>
           <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
             <img
-              src="assets/svg/Business_SVG.svg"
+              src={Image}
               alt=""
-              className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
+              className="rounded h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
             />
+          </div>
+          <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
+            <h1 className="text-4xl font-bold leading-none sm:text-4xl">
+              Are you finding
+              <span className="dark:text-violet-400"> the best course</span> to
+              learn mern stack effectively then welcome you. here is the
+              solutions
+            </h1>
+
+            <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+              <div className="mt-4">
+                <Link to="/courses">
+                  <button className="btn btn-primary">
+                    Review Courses{" "}
+                    <FaArrowRight className="ml-3"></FaArrowRight>{" "}
+                  </button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
