@@ -8,7 +8,11 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <div>nai</div>;
+    return (
+      <div className="radial-progress text-primary text-center" style={{ "--value": 70 }}>
+        70%
+      </div>
+    );
   }
 
   if (user && user.uid) {
