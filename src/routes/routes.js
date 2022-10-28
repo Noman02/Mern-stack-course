@@ -38,7 +38,7 @@ export const routes = createBrowserRouter([
         element: <Courses></Courses>,
         loader: () => {
           return fetch(
-            "https://assignment-10-server-rouge.vercel.app/allCourses"
+            "https://assignment-10-server-rouge.vercel.app/courseCollection"
           );
         },
       },
@@ -47,7 +47,7 @@ export const routes = createBrowserRouter([
         element: <CourseDetail></CourseDetail>,
         loader: ({ params }) => {
           return fetch(
-            `https://assignment-10-server-rouge.vercel.app/course/${params.id}`
+            `https://assignment-10-server-rouge.vercel.apphttps:/assignment-10-server-rouge.vercel.app/data/${params.id}`
           );
         },
       },
@@ -60,7 +60,7 @@ export const routes = createBrowserRouter([
         ),
         loader: ({ params }) => {
           return fetch(
-            `https://assignment-10-server-rouge.vercel.app/course/${params.id}`
+            `https://assignment-10-server-rouge.vercel.app/data/${params.id}`
           );
         },
       },
