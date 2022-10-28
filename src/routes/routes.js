@@ -47,7 +47,7 @@ export const routes = createBrowserRouter([
         element: <CourseDetail></CourseDetail>,
         loader: ({ params }) => {
           return fetch(
-            `https://assignment-10-server-rouge.vercel.apphttps:/assignment-10-server-rouge.vercel.app/data/${params.id}`
+            `https://assignment-10-server-rouge.vercel.app/data/${params.id}`
           );
         },
       },
